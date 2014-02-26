@@ -1,28 +1,8 @@
-== README
+Introduction to User Authentication
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Password-protected actions are a common feature in most web applications, only allowing registered users in with a valid password. This is called “User Authentication”, and many Rails applications need it. Let’s start with a quick scenario of how the user authentication process works.
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Signup: create a new user. This user is going to register with a username, password (which will be encrypted in the database), email, etc.
+Login: allow a user to sign in with her/his valid username and password. The authentication process happens by matching the username and password in the database, allowing the user access to the protected actions only if the given information matches the recorded values successfully. If not, the user will be redirected to the login page again.
+Access Restriction: create a session to hold the authenticated user ID after login, so navigation through additional protected actions can be done easily by just checking the userID in the current session.
+Logout: allow the user to sign out and set the authenticated userID in session file to nil.
